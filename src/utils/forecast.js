@@ -9,7 +9,9 @@ const forecast = (latitude, longitude, callback)=>{
         }else if(body.error){
             callback('Something went wrong with the location')
         }else{
-            callback(undefined ,body.daily.data[0].summary+' It is currently '+body.currently.temperature+' degree celcius out here and ther is '+body.currently.precipProbability * 100+ ' % chance of raining')
+            callback(undefined ,body.daily.data[0].summary+' It is currently '+body.currently.temperature+' degree celcius out here and ther is '+body.currently.precipProbability * 100+ ' % chance of raining'
+                        + ' with Max high = '+ body.daily.data[0].apparentTemperatureHigh
+                        + ' and Max low = ' + body.daily.data[0].apparentTemperatureLow)
         }
       
 })
